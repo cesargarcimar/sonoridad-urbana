@@ -1,57 +1,76 @@
-// --- CAMBIA ESTO ---
-const supabaseUrl = 'TU_SUPABASE_URL';
-const supabaseKey = 'TU_SUPABASE_ANON_KEY';
-// ----------------------
+// ------------------------
+// Conexión con Supabase
+// ------------------------
+const supabaseUrl = 'https://mzchsyyjttmqxxtjaqxg.supabase.co';
+const supabaseKey = 'sb_publishable_vM_VOxXF4NZidL09m1-z_A_bgcSrVw3';
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-let startTime = 0;
-let faderMoves = 0;
-
+// ------------------------
+// Elementos del DOM
+// ------------------------
+const startBtn = document.getElementById('startBtn');
+const formSection = document.getElementById('formSection');
 const fader = document.getElementById('fader');
+const submitBtn = document.getElementById('submitBtn');
+const ageInput = document.getElementById('age'); // id del input de edad
+const genderInput = document.getElementById('gender'); // id del input de género
+const headphonesInput = document.getElementById('headphones'); // id del input auriculares
+const listeningTimeInput = document.getElementById('listeningTime'); // id del input tiempo de escucha
+const commentInput = document.getElementById('comment'); // id del input comentario
 
-fader.addEventListener('input', () => {
-    faderMoves++;
+// ------------------------
+// Función para mostrar formulario al aceptar
+// ------------------------
+startBtn.addEventListener('click', () => {
+    document.getElementById('consent').style.display = 'none';
+    formSection.style.display = 'block';
 });
 
-function showForm() {
-    document.getElementById('consent').style.display = 'none';
-    document.getElementById('form').style.display = 'block';
-}
+// ------------------------
+// Función para enviar datos a Supabase
+// ------------------------
+submitBtn.addEventListener('click', async () => {
+    const age_rango = ageInput.value;
+    const genderVal = genderInput.value;
+    const headphones = headphonesInput.value;
+    const listening_time_seconds = parseFloat(listeningTimeInput.value);
+    const fader_movements = parseFloat(fader.value); // valor del fader entre 0 y 1
+    const comment = commentInput.value;
 
-function startAudio() {
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('audioSection').style.display = 'block';
-    const track = document.getElementById('track');
-    track.play();
-    startTime = Date.now();
-}
-
-async function submitData() {
-    const age_range = document.getElementById('age_range').value;
-    const gender = document.getElementById('gender').value;
-    const city = document.getElementById('city').value;
-    const uses_headphones = document.getElementById('headphones').value === 'true';
-    const fader_value = parseFloat(fader.value);
-    const listening_time_seconds = Math.round((Date.now() - startTime)/1000);
-    const fader_movements = faderMoves;
+    if (!age_rango || !genderVal) {
+        alert('Por favor, completa los campos obligatorios');
+        return;
+    }
 
     const { data, error } = await supabase
         .from('respuestas')
-        .insert([{
-            age_range,
-            gender,
-            city,
-            uses_headphones,
-            fader_value,
-            listening_time_seconds,
-            fader_movements
-        }]);
+        .insert([
+            {
+                age_rango: age_rango,
+                gender: genderVal,
+                headphones: headphones,
+                listening_time_seconds: listening_time_seconds,
+                fader_movements: fader_movements,
+                comment: comment
+            }
+        ]);
 
-    if(error) {
-        alert('Error al guardar los datos');
-        console.log(error);
+    if (error) {
+        console.error(error);
+        alert('Hubo un error al enviar tus datos');
     } else {
-        document.getElementById('audioSection').style.display = 'none';
-        document.getElementById('thanks').style.display = 'block';
+        alert('Gracias, tu participación ha sido registrada');
+        formSection.style.display = 'none';
+        document.getElementById('gracias').style.display = 'block';
     }
+});
+
+// ------------------------
+// Opcional: mostrar valor del fader en tiempo real
+// ------------------------
+const faderValueLabel = document.getElementById('faderValue');
+if (faderValueLabel) {
+    fader.addEventListener('input', () => {
+        faderValueLabel.textContent = fader.value;
+    });
 }
