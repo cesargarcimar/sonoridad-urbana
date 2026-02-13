@@ -1,48 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Sonoridad Urbana</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Experiencia Sonora Urbana</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
+        #formSection, #gracias { display: none; margin-top: 20px; }
+        input, select, textarea { display: block; margin: 10px auto; padding: 5px; width: 200px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        #fader { width: 300px; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Participa en la experiencia sonora</h1>
 
-        <div id="consent">
-            <p>Este estudio es anónimo. Al continuar aceptas participar.</p>
-            <button onclick="showForm()">Acepto participar</button>
-        </div>
-
-        <div id="form" style="display:none;">
-            <label>Edad:</label>
-            <input type="text" id="age_range"><br>
-            <label>Género (opcional):</label>
-            <input type="text" id="gender"><br>
-            <label>Ciudad:</label>
-            <input type="text" id="city"><br>
-            <label>¿Usas auriculares?</label>
-            <select id="headphones">
-                <option value="true">Sí</option>
-                <option value="false">No</option>
-            </select><br>
-            <button onclick="startAudio()">Siguiente</button>
-        </div>
-
-        <div id="audioSection" style="display:none;">
-            <audio id="track" src="audio.mp3" controls></audio>
-            <br>
-            <input type="range" id="fader" min="-1" max="1" step="0.01" value="0">
-            <br>
-            <button onclick="submitData()">Confirmar mi punto</button>
-        </div>
-
-        <div id="thanks" style="display:none;">
-            <h2>Gracias por participar!</h2>
-        </div>
+    <!-- Consentimiento -->
+    <div id="consent">
+        <h2>Participa en la experiencia sonora</h2>
+        <p>Este estudio es anónimo. Al continuar aceptas participar.</p>
+        <button id="startBtn">Acepto participar</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Formulario -->
+    <div id="formSection">
+        <h3>Formulario</h3>
+        <label for="age">Rango de edad</label>
+        <input type="text" id="age" placeholder="Ej: 20-30">
+
+        <label for="gender">Género</label>
+        <input type="text" id="gender" placeholder="Ej: masculino/femenino/etc">
+
+        <label for="headphones">Tipo de auriculares</label>
+        <input type="text" id="headphones" placeholder="Ej: in-ear, over-ear">
+
+        <label for="listeningTime">Tiempo de escucha (segundos)</label>
+        <input type="number" id="listeningTime" placeholder="Ej: 120">
+
+        <label for="comment">Comentario</label>
+        <textarea id="comment" rows="3" placeholder="Escribe tu comentario"></textarea>
+
+        <label for="fader">Mover fader (izquierda-derecha)</label>
+        <input type="range" id="fader" min="0" max="1" step="0.01" value="0.5">
+        <span id="faderValue">0.5</span>
+
+        <button id="submitBtn">Confirmar mi punto</button>
+    </div>
+
+    <!-- Mensaje de gracias -->
+    <div id="gracias">
+        <h3>¡Gracias por participar!</h3>
+    </div>
+
+    <!-- Script JS -->
     <script src="script.js"></script>
+
 </body>
 </html>
