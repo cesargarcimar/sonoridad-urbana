@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Urban Sound Experience</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
-        #formSection, #thanks { display: block; margin-top: 20px; }
-        input { display: block; margin: 10px auto; padding: 5px; width: 200px; }
-        #fader { width: 300px; }
-    </style>
+    <!-- Enlace al CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="formSection">
-        <h3>Form</h3>
-        <label for="fader">Move fader</label>
+    <!-- Primera pantalla: solo consentimiento -->
+    <div id="consent">
+        <h2>Participate in the sound experience</h2>
+        <button id="startBtn">I agree to participate</button>
+    </div>
+
+    <!-- Segunda pantalla: fader y audio, ocultos al inicio -->
+    <div id="formSection" style="display: none;">
+        <h3>Enjoy the fader 🎚️</h3>
+
+        <!-- Audio player -->
+        <audio id="audioPlayer" controls>
+            <source src="audio.mp3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Fader -->
+        <label for="fader"></label>
         <input type="range" id="fader" min="0" max="100" step="1" value="50">
         <span id="faderValue">50</span>
     </div>
 
-    <div id="thanks">
-        <h3>Thank you for participating!</
+    <div id="thanks" style="display: none;">
+        <h3>Thank you for participating!</h3>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
