@@ -1,7 +1,10 @@
+// Comprobar que el JS se carga
+console.log("script.js cargado");
+
+// Esperar a que todo el HTML esté listo
 document.addEventListener('DOMContentLoaded', () => {
 
-    console.log("script.js cargado");
-
+    // Elementos del DOM
     const startBtn = document.getElementById('startBtn');
     const formSection = document.getElementById('formSection');
     const fader = document.getElementById('fader');
