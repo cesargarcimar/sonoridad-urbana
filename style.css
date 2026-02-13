@@ -6,14 +6,13 @@ body {
     color: #f0f0f0;
     background-image: url('backimage.jpg');
     background-size: cover;
-    background-position: center top; /* asegura que empiece desde arriba */
+    background-position: center top;
     background-repeat: no-repeat;
-    min-height: 100vh; /* asegura cubrir toda la pantalla */
+    min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Degradado / overlay sobre la imagen */
 body::before {
     content: "";
     position: absolute;
@@ -52,7 +51,6 @@ select {
     box-sizing: border-box;
 }
 
-/* Centrar opciones en select */
 select {
     text-align-last: center; 
     -moz-text-align-last: center;
@@ -101,7 +99,6 @@ input[type="range"] {
     touch-action: none; 
 }
 
-/* Thumb - Chrome/Safari */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 90px;
@@ -112,10 +109,9 @@ input[type="range"]::-webkit-slider-thumb {
     background-repeat: no-repeat;
     cursor: pointer;
     border: none;
-    margin-top: -38px; 
+    margin-top: -38px;
 }
 
-/* Thumb - Firefox */
 input[type="range"]::-moz-range-thumb {
     width: 90px;
     height: 90px;
@@ -129,7 +125,6 @@ input[type="range"]::-moz-range-thumb {
     top: -38px;
 }
 
-/* Track */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 14px; 
     border-radius: 6px;
@@ -144,26 +139,65 @@ input[type="range"]::-moz-range-track {
 
 /* Media query para móviles */
 @media screen and (max-width: 480px) {
+
     body {
-        padding: 25px 15px;
+        padding: 20px 10px;
     }
-    h2, h3 {
+
+    /* Primera pantalla: inputs y botón más grandes y centrados verticalmente */
+    #userConsent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 80vh;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    input[type="text"], input[type="number"], select {
+        font-size: 22px;
+        height: 100px; /* doble altura */
+        margin: 20px auto;
+    }
+
+    button#agreeBtn {
+        font-size: 22px;
+        height: 100px; /* doble altura */
+        margin-top: 40px;
+    }
+
+    /* Segunda pantalla: todo más grande */
+    #formSection {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 80vh;
+    }
+
+    h3 {
         font-size: 1.8rem;
+        margin-bottom: 40px;
     }
-    input[type="text"], input[type="number"], select, button {
-        font-size: 18px;
-        height: 50px;
-    }
+
     input[type="range"] {
         width: 95%;
-        height: 16px;
-        margin: 60px auto 40px auto;
+        height: 18px;
+        margin: 80px auto 60px auto;
     }
+
     input[type="range"]::-webkit-slider-thumb,
     input[type="range"]::-moz-range-thumb {
-        width: 70px;
-        height: 70px;
-        margin-top: -28px;
-        top: -28px;
+        width: 80px;
+        height: 80px;
+        margin-top: -35px;
+        top: -35px;
+    }
+
+    button#submitBtn {
+        font-size: 22px;
+        height: 80px;
+        margin-top: 30px;
     }
 }
