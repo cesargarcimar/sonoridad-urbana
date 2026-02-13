@@ -137,10 +137,7 @@ input[type="range"]::-moz-range-track {
     background-color: #c7a3e0;
 }
 
-/* ---------------------------- */
-/* Media query para móviles     */
-/* Todo al TRIPLE de tamaño     */
-/* ---------------------------- */
+/* Media query para móviles */
 @media screen and (max-width: 480px) {
 
     body {
@@ -152,26 +149,26 @@ input[type="range"]::-moz-range-track {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 95vh; /* casi toda la pantalla */
+        min-height: 90vh; /* casi toda la pantalla */
     }
 
     h2 {
-        font-size: 3rem;
-        margin-bottom: 60px;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
     }
 
     input[type="text"], input[type="number"], select {
-        font-size: 60px;   /* triple tamaño */
-        height: 165px;     /* triple altura */
-        margin: 30px auto;
-        width: 95%;
+        font-size: 26px;
+        height: 120px; /* enorme */
+        margin: 25px auto;
+        width: 90%; /* ocupa casi toda la pantalla */
     }
 
     button#agreeBtn {
-        font-size: 60px;   /* triple tamaño */
-        height: 165px;     /* triple altura */
-        margin-top: 60px;
-        width: 95%;
+        font-size: 26px;
+        height: 120px; /* enorme */
+        margin-top: 50px;
+        width: 90%;
     }
 
     /* Segunda pantalla: fader y botón más grandes */
@@ -179,32 +176,32 @@ input[type="range"]::-moz-range-track {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 90vh;
+        min-height: 85vh;
     }
 
     h3 {
-        font-size: 3rem;
-        margin-bottom: 60px;
+        font-size: 2rem;
+        margin-bottom: 50px;
     }
 
     input[type="range"] {
-        width: 95%;
-        height: 40px;        /* triple grosor */
-        margin: 100px auto 80px auto;
+        width: 90%;
+        height: 20px;
+        margin: 80px auto 60px auto;
     }
 
     input[type="range"]::-webkit-slider-thumb,
     input[type="range"]::-moz-range-thumb {
-        width: 150px;         /* mucho más grande */
-        height: 150px;
-        margin-top: -55px;    /* centrado sobre la barra */
-        top: -55px;
+        width: 100px;
+        height: 100px;
+        margin-top: -40px;
+        top: -40px;
     }
 
     button#submitBtn {
-        font-size: 60px;
-        height: 165px;
-        margin-top: 50px;
-        width: 95%;
+        font-size: 24px;
+        height: 90px;
+        margin-top: 40px;
+        width: 90%;
     }
 }
