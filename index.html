@@ -30,18 +30,22 @@
         <label for="gender">Género</label>
         <input type="text" id="gender" placeholder="Ej: masculino/femenino/etc">
 
-        <label for="headphones">Tipo de auriculares</label>
-        <input type="text" id="headphones" placeholder="Ej: in-ear, over-ear">
+        <label for="headphones">Usa auriculares</label>
+        <select id="headphones">
+            <option value="">Selecciona</option>
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+        </select>
 
         <label for="listeningTime">Tiempo de escucha (segundos)</label>
         <input type="number" id="listeningTime" placeholder="Ej: 120">
 
+        <label for="fader">Mover fader (izquierda-derecha)</label>
+        <input type="range" id="fader" min="0" max="100" step="1" value="50">
+        <span id="faderValue">50</span>
+
         <label for="comment">Comentario</label>
         <textarea id="comment" rows="3" placeholder="Escribe tu comentario"></textarea>
-
-        <label for="fader">Mover fader (izquierda-derecha)</label>
-        <input type="range" id="fader" min="0" max="1" step="0.01" value="0.5">
-        <span id="faderValue">0.5</span>
 
         <button id="submitBtn">Confirmar mi punto</button>
     </div>
@@ -55,7 +59,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 
     <!-- Tu script JS -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>
