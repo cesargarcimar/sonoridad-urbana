@@ -139,7 +139,7 @@ input[type="range"]::-moz-range-track {
 
 /* ---------------------------- */
 /* Media query para móviles      */
-/* Tamaño proporcionado, no gigante */
+/* Tamaño reducido para móvil    */
 /* ---------------------------- */
 @media screen and (max-width: 480px) {
 
@@ -147,7 +147,7 @@ input[type="range"]::-moz-range-track {
         padding: 10px;
     }
 
-    /* Primera pantalla: inputs y botón centrados y proporcionados */
+    /* Primera pantalla: inputs y botón centrados y más pequeños */
     #userConsent {
         display: flex;
         flex-direction: column;
@@ -156,25 +156,25 @@ input[type="range"]::-moz-range-track {
     }
 
     h2 {
-        font-size: 1.8rem;
-        margin-bottom: 35px;
+        font-size: 1.6rem;
+        margin-bottom: 25px;
     }
 
     input[type="text"], input[type="number"], select {
-        font-size: 18px;
-        height: 60px;
-        margin: 15px auto;
-        width: 85%;
+        font-size: 16px;
+        height: 50px;
+        margin: 10px auto;
+        width: 80%;
     }
 
     button#agreeBtn {
-        font-size: 18px;
-        height: 60px;
-        margin-top: 30px;
-        width: 85%;
+        font-size: 16px;
+        height: 50px;
+        margin-top: 20px;
+        width: 80%;
     }
 
-    /* Segunda pantalla: fader y botón proporcionados */
+    /* Segunda pantalla: fader y botón más pequeños */
     #formSection {
         display: flex;
         flex-direction: column;
@@ -183,28 +183,28 @@ input[type="range"]::-moz-range-track {
     }
 
     h3 {
-        font-size: 1.8rem;
-        margin-bottom: 35px;
+        font-size: 1.6rem;
+        margin-bottom: 25px;
     }
 
     input[type="range"] {
-        width: 85%;
-        height: 16px;
-        margin: 50px auto 40px auto;
+        width: 80%;
+        height: 14px;
+        margin: 40px auto 30px auto;
     }
 
     input[type="range"]::-webkit-slider-thumb,
     input[type="range"]::-moz-range-thumb {
-        width: 80px;
-        height: 80px;
-        margin-top: -32px;
-        top: -32px;
+        width: 70px;
+        height: 70px;
+        margin-top: -28px;
+        top: -28px;
     }
 
     button#submitBtn {
-        font-size: 18px;
-        height: 60px;
-        margin-top: 25px;
-        width: 85%;
+        font-size: 16px;
+        height: 50px;
+        margin-top: 20px;
+        width: 80%;
     }
 }
