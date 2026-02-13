@@ -2,12 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Experiencia Sonora Urbana</title>
+    <title>Prueba Experiencia Sonora</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 40px; }
         #formSection, #gracias { display: none; margin-top: 20px; }
-        input, select, textarea { display: block; margin: 10px auto; padding: 5px; width: 200px; }
-        button { padding: 10px 20px; font-size: 16px; }
+        input, button { display: block; margin: 10px auto; padding: 5px; width: 200px; }
         #fader { width: 300px; }
     </style>
 </head>
@@ -16,50 +15,10 @@
     <!-- Consentimiento -->
     <div id="consent">
         <h2>Participa en la experiencia sonora</h2>
-        <p>Este estudio es anónimo. Al continuar aceptas participar.</p>
         <button id="startBtn">Acepto participar</button>
     </div>
 
-    <!-- Formulario -->
+    <!-- Formulario mínimo -->
     <div id="formSection">
         <h3>Formulario</h3>
-
-        <label for="age">Rango de edad</label>
-        <input type="text" id="age" placeholder="Ej: 20-30">
-
-        <label for="gender">Género</label>
-        <input type="text" id="gender" placeholder="Ej: masculino/femenino/etc">
-
-        <label for="headphones">Usa auriculares</label>
-        <select id="headphones">
-            <option value="">Selecciona</option>
-            <option value="true">Sí</option>
-            <option value="false">No</option>
-        </select>
-
-        <label for="listeningTime">Tiempo de escucha (segundos)</label>
-        <input type="number" id="listeningTime" placeholder="Ej: 120">
-
-        <label for="fader">Mover fader (izquierda-derecha)</label>
-        <input type="range" id="fader" min="0" max="100" step="1" value="50">
-        <span id="faderValue">50</span>
-
-        <label for="comment">Comentario</label>
-        <textarea id="comment" rows="3" placeholder="Escribe tu comentario"></textarea>
-
-        <button id="submitBtn">Confirmar mi punto</button>
-    </div>
-
-    <!-- Mensaje de gracias -->
-    <div id="gracias">
-        <h3>¡Gracias por participar!</h3>
-    </div>
-
-    <!-- Librería Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
-
-    <!-- Tu script JS -->
-    <script src="script.js" defer></script>
-
-</body>
-</html>
+        <label for="fa
