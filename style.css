@@ -141,63 +141,67 @@ input[type="range"]::-moz-range-track {
 @media screen and (max-width: 480px) {
 
     body {
-        padding: 20px 10px;
+        padding: 10px;
     }
 
-    /* Primera pantalla: inputs y botón más grandes y centrados verticalmente */
+    /* Primera pantalla: inputs y botón gigantes, centrados verticalmente */
     #userConsent {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 80vh;
+        min-height: 90vh; /* casi toda la pantalla */
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
     }
 
     input[type="text"], input[type="number"], select {
-        font-size: 22px;
-        height: 100px; /* doble altura */
-        margin: 20px auto;
+        font-size: 26px;
+        height: 120px; /* enorme */
+        margin: 25px auto;
+        width: 90%; /* ocupa casi toda la pantalla */
     }
 
     button#agreeBtn {
-        font-size: 22px;
-        height: 100px; /* doble altura */
-        margin-top: 40px;
+        font-size: 26px;
+        height: 120px; /* enorme */
+        margin-top: 50px;
+        width: 90%;
     }
 
-    /* Segunda pantalla: todo más grande */
+    /* Segunda pantalla: fader y botón más grandes */
     #formSection {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 80vh;
+        min-height: 85vh;
     }
 
     h3 {
-        font-size: 1.8rem;
-        margin-bottom: 40px;
+        font-size: 2rem;
+        margin-bottom: 50px;
     }
 
     input[type="range"] {
-        width: 95%;
-        height: 18px;
+        width: 90%;
+        height: 20px;
         margin: 80px auto 60px auto;
     }
 
     input[type="range"]::-webkit-slider-thumb,
     input[type="range"]::-moz-range-thumb {
-        width: 80px;
-        height: 80px;
-        margin-top: -35px;
-        top: -35px;
+        width: 100px;
+        height: 100px;
+        margin-top: -40px;
+        top: -40px;
     }
 
     button#submitBtn {
-        font-size: 22px;
-        height: 80px;
-        margin-top: 30px;
+        font-size: 24px;
+        height: 90px;
+        margin-top: 40px;
+        width: 90%;
     }
 }
