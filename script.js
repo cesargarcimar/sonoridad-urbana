@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPlaying = false;
     let userData = {};
 
+    // Activar botón solo si todo está rellenado
     const checkInputs = () => {
         if (nicknameInput.value && ageInput.value && genderSelect.value) {
             agreeBtn.classList.remove('disabled');
@@ -34,10 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ageInput.addEventListener('input', checkInputs);
     genderSelect.addEventListener('change', checkInputs);
 
+    // Pasar a segunda pantalla
     agreeBtn.addEventListener('click', () => {
         if (agreeBtn.classList.contains('disabled')) return;
 
-        userData.nickname = nicknameInput.value;
+        userData["Name or Nickname"] = nicknameInput.value;
         userData.age_rango = ageInput.value;
         userData.gender = genderSelect.value;
 
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formSection.style.display = 'block';
     });
 
+    // Play / Pause
     playPauseBtn.addEventListener('click', () => {
         if (!isPlaying) {
             track1.play();
@@ -76,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateFaderColor(50);
 
+    // Fader volumen y color
     fader.addEventListener('input', () => {
         const value = parseInt(fader.value);
         const v = value / 100;
@@ -86,9 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFaderColor(value);
     });
 
+    // Submit
     submitBtn.addEventListener('click', async () => {
         const results = {
-            nickname: userData.nickname,
+            "Name or Nickname": userData["Name or Nickname"],
             age_rango: userData.age_rango,
             gender: userData.gender,
             valor_fader: userData.valor_fader ?? parseInt(fader.value),
@@ -98,13 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
             comment: null
         };
 
+        console.log("Sending to Supabase:", results);
+
         const { data, error } = await supabaseClient
             .from('respuestas')
             .insert([results]);
 
         if (error) {
             console.error("Supabase error:", error);
-            alert("Error sending results.");
+            alert("Error sending results: " + error.message);
         } else {
             formSection.style.display = 'none';
             document.getElementById('thanks').style.display = 'block';
