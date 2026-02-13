@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cambio simple de color: morado oscuro según lado del fader
+    // Cambio de color del fader según posición
     const updateFaderColor = (value) => {
         const mid = 50;
         const darkPurple = '#6a0dad'; 
@@ -89,6 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateFaderColor(value);
     });
+
+    // Evitar scroll en móviles al mover el fader
+    fader.addEventListener('touchstart', e => e.preventDefault());
+    fader.addEventListener('touchmove', e => e.preventDefault());
 
     // Submit
     submitBtn.addEventListener('click', async () => {
