@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPlaying = false;
     let userData = {};
 
-    // Activar botón solo si todo está rellenado
+    // Revisar inputs
     const checkInputs = () => {
         if (nicknameInput.value && ageInput.value && genderSelect.value) {
             agreeBtn.classList.remove('disabled');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ageInput.addEventListener('input', checkInputs);
     genderSelect.addEventListener('change', checkInputs);
 
-    // Pasar a segunda pantalla
+    // Paso a segunda pantalla
     agreeBtn.addEventListener('click', () => {
         if (agreeBtn.classList.contains('disabled')) return;
 
@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Cambio de color del fader según posición
+    // Color de fader según posición
     const updateFaderColor = (value) => {
         const mid = 50;
-        const darkPurple = '#6a0dad'; 
+        const darkPurple = '#6a0dad';
         const lightPurple = '#c7a3e0';
 
         if (value === mid) {
@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFaderColor(value);
     });
 
-    // Evitar scroll en móviles al mover el fader
-    fader.addEventListener('touchstart', e => e.preventDefault());
-    fader.addEventListener('touchmove', e => e.preventDefault());
+    // Touch para móvil: mover fader sin scroll
+    fader.addEventListener('touchstart', e => e.stopPropagation());
+    fader.addEventListener('touchmove', e => e.stopPropagation());
 
     // Submit
     submitBtn.addEventListener('click', async () => {
