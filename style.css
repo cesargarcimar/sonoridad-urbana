@@ -1,9 +1,62 @@
+/* Fondo y tipografía */
 body {
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
     text-align: center;
     padding: 50px;
+    background: #0d0d0d;       /* fondo negro */
+    color: #f2f2f2;            /* texto blanco */
 }
 
+/* Botones */
+button {
+    background-color: #ff4081; /* rosa vibrante */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background-color: #ff79a8;
+    transform: translateY(-2px);
+}
+
+/* Rango / fader */
 input[type="range"] {
     width: 300px;
+    accent-color: #00e5ff; /* barra del slider azul neón */
 }
+
+/* Valor del fader */
+#faderValue {
+    font-weight: bold;
+    color: #00e5ff;
+    margin-left: 10px;
+}
+
+/* Audio */
+audio {
+    margin-top: 20px;
+    width: 80%;
+    outline: none;
+}
+
+/* Encabezados */
+h2, h3 {
+    text-shadow: 1px 1px 5px #00e5ff;
+}
+
+/* Secciones */
+#formSection, #thanks {
+    margin-top: 30px;
+}
+
+/* Consent div */
+#consent {
+    margin-bottom: 30px;
+}
+
