@@ -96,7 +96,7 @@ input[type="range"] {
     outline: none;
     position: relative;
     z-index: 1;
-    touch-action: none; 
+    touch-action: none;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -137,41 +137,41 @@ input[type="range"]::-moz-range-track {
     background-color: #c7a3e0;
 }
 
-/* Media query para móviles */
+/* Media query para móviles ajustados */
 @media screen and (max-width: 480px) {
 
     body {
         padding: 10px;
     }
 
-    /* Primera pantalla: inputs y botón gigantes, centrados verticalmente */
+    /* Primera pantalla: inputs y botón proporcionados y centrados */
     #userConsent {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 90vh; /* casi toda la pantalla */
+        min-height: 90vh;
     }
 
     h2 {
-        font-size: 2.5rem;
-        margin-bottom: 50px;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
     }
 
     input[type="text"], input[type="number"], select {
-        font-size: 26px;
-        height: 120px; /* enorme */
-        margin: 25px auto;
-        width: 90%; /* ocupa casi toda la pantalla */
-    }
-
-    button#agreeBtn {
-        font-size: 26px;
-        height: 120px; /* enorme */
-        margin-top: 50px;
+        font-size: 24px;
+        height: 90px;
+        margin: 20px auto;
         width: 90%;
     }
 
-    /* Segunda pantalla: fader y botón más grandes */
+    button#agreeBtn {
+        font-size: 24px;
+        height: 90px;
+        margin-top: 40px;
+        width: 90%;
+    }
+
+    /* Segunda pantalla: fader y botón proporcional */
     #formSection {
         display: flex;
         flex-direction: column;
@@ -181,27 +181,27 @@ input[type="range"]::-moz-range-track {
 
     h3 {
         font-size: 2rem;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     input[type="range"] {
         width: 90%;
-        height: 20px;
-        margin: 80px auto 60px auto;
+        height: 18px;
+        margin: 60px auto 50px auto;
     }
 
     input[type="range"]::-webkit-slider-thumb,
     input[type="range"]::-moz-range-thumb {
         width: 100px;
         height: 100px;
-        margin-top: -40px;
-        top: -40px;
+        margin-top: -41px;
+        top: -41px;
     }
 
     button#submitBtn {
-        font-size: 24px;
-        height: 90px;
-        margin-top: 40px;
+        font-size: 22px;
+        height: 80px;
+        margin-top: 30px;
         width: 90%;
     }
 }
