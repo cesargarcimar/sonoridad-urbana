@@ -8,12 +8,24 @@ body {
     background-size: cover;       /* ocupa toda la pantalla */
     background-position: center;  /* centrada */
     background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Opcional: degradado o blur sobre la imagen de fondo para suavizar */
+body::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.35); /* oscurece un poco la imagen */
+    z-index: 0;
 }
 
 /* Títulos */
 h2, h3 {
     margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* sombra para visibilidad */
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
 /* Inputs y selects */
@@ -30,7 +42,10 @@ select {
     margin: 10px auto;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.7); /* fondo blanco semi-transparente */
+    background-color: #ffffff; /* sólido para que no se difumine */
+    color: #000000;
+    z-index: 1;
+    position: relative;
 }
 
 /* Centrado de opciones en select */
@@ -50,17 +65,19 @@ button {
     margin: 10px auto;
     cursor: pointer;
     transition: 0.3s;
-    background-color: rgba(155, 89, 182, 0.7); /* morado semitransparente */
+    background-color: #9b59b6; /* sólido */
     color: white;
+    z-index: 1;
+    position: relative;
 }
 
 button.disabled {
-    opacity: 0.4;        /* pálido cuando desactivado */
+    opacity: 0.6; /* pálido, pero sigue visible */
     pointer-events: none;
 }
 
 button:not(.disabled):hover {
-    background-color: rgba(183, 110, 198, 0.85); /* morado más fuerte al pasar el ratón */
+    background-color: #b76ec6;
 }
 
 /* Fader (barra y thumb) */
@@ -73,6 +90,8 @@ input[type="range"] {
     margin: 60px auto 40px auto;
     display: block;
     outline: none;
+    position: relative;
+    z-index: 1;
 }
 
 /* Thumb - Chrome/Safari */
@@ -86,7 +105,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-repeat: no-repeat;
     cursor: pointer;
     border: none;
-    margin-top: -32px; /* bajado sobre la barra */
+    margin-top: -28px; /* un poquito más abajo que antes, centrado sobre la barra */
 }
 
 /* Thumb - Firefox */
@@ -100,7 +119,7 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     border: none;
     position: relative;
-    top: -32px; 
+    top: -28px; /* un poquito más abajo que antes */
 }
 
 /* Track */
@@ -115,3 +134,60 @@ input[type="range"]::-moz-range-track {
     border-radius: 6px;
     background-color: #c7a3e0;
 }
+
+/* ========================= */
+/* RESPONSIVE / MÓVIL */
+/* ========================= */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    /* Pantallas centradas */
+    .screen {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    /* Inputs y botones más pequeños para móvil */
+    input[type="text"],
+    input[type="number"],
+    select,
+    button {
+        width: 90%;
+        max-width: 100%;
+        height: 44px;
+        font-size: 15px;
+        margin: 8px auto;
+    }
+
+    /* Fader más corto para pantalla móvil */
+    input[type="range"] {
+        width: 90%;
+        max-width: 90%;
+        height: 12px;
+        margin: 40px auto 30px auto;
+    }
+
+    /* Thumb un poco más pequeño en móvil */
+    input[type="range"]::-webkit-slider-thumb,
+    input[type="range"]::-moz-range-thumb {
+        width: 60px;
+        height: 60px;
+        margin-top: -24px; /* mantener centrado sobre la barra */
+    }
+
+    /* Títulos más pequeños */
+    h2, h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Play / Submit botones */
+    #playPauseBtn, #submitBtn {
+        font-size: 15px;
+        height: 42px;
+    }
+}
+
