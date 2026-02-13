@@ -1,62 +1,117 @@
-/* Fondo y tipografía */
+/* Body y fondo */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
     padding: 50px;
-    background: #0d0d0d;       /* fondo negro */
-    color: #f2f2f2;            /* texto blanco */
+    color: #f0f0f0;
+    background-image: url('backimage.jpg');
+    background-size: cover;       /* ocupa toda la pantalla */
+    background-position: center;  /* centrada */
+    background-repeat: no-repeat;
+}
+
+/* Títulos */
+h2, h3 {
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* sombra para visibilidad */
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="number"],
+select {
+    width: 220px;
+    height: 44px;
+    padding: 0 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0.7); /* fondo blanco semi-transparente */
+}
+
+/* Centrado de opciones en select */
+select {
+    text-align-last: center; 
+    -moz-text-align-last: center; 
 }
 
 /* Botones */
 button {
-    background-color: #ff4081; /* rosa vibrante */
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
+    width: 220px;
+    height: 44px;
     font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    display: block;
+    margin: 10px auto;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    background-color: rgba(155, 89, 182, 0.7); /* morado semitransparente */
+    color: white;
 }
 
-button:hover {
-    background-color: #ff79a8;
-    transform: translateY(-2px);
+button.disabled {
+    opacity: 0.4;        /* pálido cuando desactivado */
+    pointer-events: none;
 }
 
-/* Rango / fader */
+button:not(.disabled):hover {
+    background-color: rgba(183, 110, 198, 0.85); /* morado más fuerte al pasar el ratón */
+}
+
+/* Fader (barra y thumb) */
 input[type="range"] {
-    width: 300px;
-    accent-color: #00e5ff; /* barra del slider azul neón */
-}
-
-/* Valor del fader */
-#faderValue {
-    font-weight: bold;
-    color: #00e5ff;
-    margin-left: 10px;
-}
-
-/* Audio */
-audio {
-    margin-top: 20px;
-    width: 80%;
+    width: 350px;
+    height: 12px; 
+    -webkit-appearance: none;
+    border-radius: 6px;
+    background-color: #c7a3e0; /* morado pálido */
+    margin: 60px auto 40px auto;
+    display: block;
     outline: none;
 }
 
-/* Encabezados */
-h2, h3 {
-    text-shadow: 1px 1px 5px #00e5ff;
+/* Thumb - Chrome/Safari */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    background-image: url('fader-thumb.png');
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    margin-top: -32px; /* bajado sobre la barra */
 }
 
-/* Secciones */
-#formSection, #thanks {
-    margin-top: 30px;
+/* Thumb - Firefox */
+input[type="range"]::-moz-range-thumb {
+    width: 80px;
+    height: 80px;
+    background-image: url('fader-thumb.png');
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    top: -32px; 
 }
 
-/* Consent div */
-#consent {
-    margin-bottom: 30px;
+/* Track */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 12px; 
+    border-radius: 6px;
+    background-color: #c7a3e0;
 }
 
+input[type="range"]::-moz-range-track {
+    height: 12px; 
+    border-radius: 6px;
+    background-color: #c7a3e0;
+}
