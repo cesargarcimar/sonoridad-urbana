@@ -12,13 +12,19 @@
 </head>
 <body>
 
-    <!-- Consentimiento -->
     <div id="consent">
         <h2>Participa en la experiencia sonora</h2>
         <button id="startBtn">Acepto participar</button>
     </div>
 
-    <!-- Formulario mínimo -->
     <div id="formSection">
         <h3>Formulario</h3>
-        <lab
+        <label for="fader">Mover fader</label>
+        <input type="range" id="fader" min="0" max="100" step="1" value="50">
+        <span id="faderValue">50</span>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
