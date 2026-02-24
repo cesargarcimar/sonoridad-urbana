@@ -12,17 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const userConsent = document.getElementById('userConsent');
     const formSection = document.getElementById('formSection');
 
-    const fader = document.getElementById('fader');
-    const playPauseBtn = document.getElementById('playPauseBtn');
     const submitBtn = document.getElementById('submitBtn');
 
-    const track1 = document.getElementById('track1');
-    const track2 = document.getElementById('track2');
+    // PAIR 1
+    const track1a = document.getElementById('track1a');
+    const track1b = document.getElementById('track1b');
+    const fader1 = document.getElementById('fader1');
+    const playPauseBtn1 = document.getElementById('playPauseBtn1');
 
-    let isPlaying = false;
+    // PAIR 2
+    const track2a = document.getElementById('track2a');
+    const track2b = document.getElementById('track2b');
+    const fader2 = document.getElementById('fader2');
+    const playPauseBtn2 = document.getElementById('playPauseBtn2');
+
+    let isPlaying1 = false;
+    let isPlaying2 = false;
     let userData = {};
 
-    // Revisar inputs
+    // Habilitar botón
     const checkInputs = () => {
         if (nicknameInput.value && ageInput.value && genderSelect.value) {
             agreeBtn.classList.remove('disabled');
@@ -35,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ageInput.addEventListener('input', checkInputs);
     genderSelect.addEventListener('change', checkInputs);
 
-    // Paso a segunda pantalla
+    // Avanzar
     agreeBtn.addEventListener('click', () => {
         if (agreeBtn.classList.contains('disabled')) return;
 
@@ -47,74 +55,73 @@ document.addEventListener('DOMContentLoaded', () => {
         formSection.style.display = 'block';
     });
 
-    // Play / Pause
-    playPauseBtn.addEventListener('click', () => {
-        if (!isPlaying) {
-            track1.play();
-            track2.play();
-            isPlaying = true;
-            playPauseBtn.textContent = "Pause";
+    // PLAY PAIR 1
+    playPauseBtn1.addEventListener('click', () => {
+        if (!isPlaying1) {
+            track1a.play();
+            track1b.play();
+            isPlaying1 = true;
+            playPauseBtn1.textContent = "Pause Pair 1";
         } else {
-            track1.pause();
-            track2.pause();
-            isPlaying = false;
-            playPauseBtn.textContent = "Play";
+            track1a.pause();
+            track1b.pause();
+            isPlaying1 = false;
+            playPauseBtn1.textContent = "Play Pair 1";
         }
     });
 
-    // Color de fader según posición
-    const updateFaderColor = (value) => {
-        const mid = 50;
-        const darkPurple = '#6a0dad';
-        const lightPurple = '#c7a3e0';
-
-        if (value === mid) {
-            fader.style.background = lightPurple;
-        } else if (value < mid) {
-            fader.style.background = `linear-gradient(to right, ${darkPurple} ${value}%, ${lightPurple} ${value}%)`;
+    // PLAY PAIR 2
+    playPauseBtn2.addEventListener('click', () => {
+        if (!isPlaying2) {
+            track2a.play();
+            track2b.play();
+            isPlaying2 = true;
+            playPauseBtn2.textContent = "Pause Pair 2";
         } else {
-            fader.style.background = `linear-gradient(to right, ${lightPurple} 0%, ${lightPurple} ${mid}%, ${darkPurple} ${mid}%, ${darkPurple} ${value}%, ${lightPurple} ${value}%, ${lightPurple} 100%)`;
+            track2a.pause();
+            track2b.pause();
+            isPlaying2 = false;
+            playPauseBtn2.textContent = "Play Pair 2";
         }
-    };
+    });
 
-    updateFaderColor(50);
-
-    // Fader volumen y color
-    fader.addEventListener('input', () => {
-        const value = parseInt(fader.value);
+    // FADER 1
+    fader1.addEventListener('input', () => {
+        const value = parseInt(fader1.value);
         const v = value / 100;
-        track1.volume = 1 - v;
-        track2.volume = v;
-        userData.valor_fader = value;
-
-        updateFaderColor(value);
+        track1a.volume = 1 - v;
+        track1b.volume = v;
+        userData.valor_fader_1 = value;
     });
 
-    // Touch para móvil: mover fader sin scroll
-    fader.addEventListener('touchstart', e => e.stopPropagation());
-    fader.addEventListener('touchmove', e => e.stopPropagation());
+    // FADER 2
+    fader2.addEventListener('input', () => {
+        const value = parseInt(fader2.value);
+        const v = value / 100;
+        track2a.volume = 1 - v;
+        track2b.volume = v;
+        userData.valor_fader_2 = value;
+    });
 
-    // Submit
+    // SUBMIT
     submitBtn.addEventListener('click', async () => {
+
         const results = {
             "Name or Nickname": userData["Name or Nickname"],
             age_rango: userData.age_rango,
             gender: userData.gender,
-            valor_fader: userData.valor_fader ?? parseInt(fader.value),
-            fader_movements: parseInt(fader.value),
-            listening_time_seconds: Math.floor(track1.currentTime),
+            valor_fader: userData.valor_fader_1 ?? 50,
+            fader_movements: userData.valor_fader_2 ?? 50,
+            listening_time_seconds: Math.floor(track1a.currentTime),
             headphones: null,
             comment: null
         };
 
-        console.log("Sending to Supabase:", results);
-
-        const { data, error } = await supabaseClient
+        const { error } = await supabaseClient
             .from('respuestas')
             .insert([results]);
 
         if (error) {
-            console.error("Supabase error:", error);
             alert("Error sending results: " + error.message);
         } else {
             formSection.style.display = 'none';
