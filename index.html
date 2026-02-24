@@ -29,11 +29,17 @@
     <div id="formSection" style="display: none;">
         <h3>Enjoy the fader 🎚️</h3>
 
-        <audio id="track1" src="audio.mp3.wav"></audio>
-        <audio id="track2" src="berlin.mp3"></audio>
-        <button id="playPauseBtn">Play</button>
+        <!-- PAIR 1 -->
+        <audio id="track1a" src="Walking Berlin.mp3"></audio>
+        <audio id="track1b" src="Walking Hanoi.mp3"></audio>
+        <button id="playPauseBtn1">Play Pair 1</button>
+        <input type="range" id="fader1" min="0" max="100" step="1" value="50">
 
-        <input type="range" id="fader" min="0" max="100" step="1" value="50">
+        <!-- PAIR 2 -->
+        <audio id="track2a" src="Berlin Church.mp3"></audio>
+        <audio id="track2b" src="Viet Pagoda.mp3"></audio>
+        <button id="playPauseBtn2">Play Pair 2</button>
+        <input type="range" id="fader2" min="0" max="100" step="1" value="50">
 
         <button id="submitBtn">Submit Results</button>
     </div>
