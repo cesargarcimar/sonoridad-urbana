@@ -1,5 +1,5 @@
 /* ---------------------------- */
-/* CSS COMPLETO PARA SONORITIES */
+/* Estilo general / Desktop     */
 /* ---------------------------- */
 
 /* Body y fondo */
@@ -143,9 +143,8 @@ input[type="range"]::-moz-range-track {
 
 /* ---------------------------- */
 /* Media query para móviles      */
-/* Ajusta tamaños de inputs, faders y botones */
 /* ---------------------------- */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
 
     body {
         padding: 10px;
@@ -160,7 +159,7 @@ input[type="range"]::-moz-range-track {
     }
 
     h2 {
-        font-size: 2rem; /* más grande en móvil */
+        font-size: 2rem;
         margin-bottom: 25px;
     }
 
@@ -168,17 +167,19 @@ input[type="range"]::-moz-range-track {
         font-size: 20px;
         height: 60px;
         margin: 12px auto;
-        width: 85%;
+        width: 90%;
+        max-width: none;
     }
 
     button#agreeBtn {
         font-size: 20px;
         height: 60px;
         margin-top: 20px;
-        width: 85%;
+        width: 90%;
+        max-width: none;
     }
 
-    /* Segunda pantalla: faders y botón más grandes */
+    /* Segunda pantalla: fader y botón más grandes */
     #formSection {
         display: flex;
         flex-direction: column;
@@ -187,13 +188,13 @@ input[type="range"]::-moz-range-track {
     }
 
     h3 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 25px;
     }
 
     input[type="range"] {
         width: 90%;
-        height: 18px;
+        height: 16px;
         margin: 50px auto 40px auto;
     }
 
@@ -206,9 +207,10 @@ input[type="range"]::-moz-range-track {
     }
 
     button#submitBtn {
-        font-size: 18px;
+        font-size: 20px;
         height: 60px;
         margin-top: 20px;
-        width: 85%;
+        width: 90%;
+        max-width: none;
     }
 }
