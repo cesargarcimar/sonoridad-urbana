@@ -6,12 +6,15 @@
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
+
 <body>
 
 <div id="userConsent">
-    <h2>Participate in the Sonorities Experience</h2>
+    <h2>German–Vietnamese Sonorities Game</h2>
+
     <input type="text" id="nickname" placeholder="Name or Nickname">
     <input type="number" id="age" placeholder="Age">
+
     <select id="gender">
         <option value="">Select gender</option>
         <option value="female">Female</option>
@@ -19,35 +22,77 @@
         <option value="non-binary">Non-binary</option>
         <option value="other">Other</option>
     </select>
+
     <button id="agreeBtn" class="disabled">Let's Play!</button>
 </div>
 
 <div id="formSection" style="display:none;">
-    <h3>Enjoy the fader 🎚️</h3>
 
-    <!-- STREETS -->
-    <audio id="track1a" src="Walking Berlin.mp3"></audio>
-    <audio id="track1b" src="Walking Hanoi.mp3"></audio>
-    <button id="playPauseBtn1">Play Pair 1</button>
-    <input type="range" id="fader1" min="0" max="100" value="50">
+    <h3>Mix & Play 🎚️</h3>
 
-    <!-- SPIRITUAL -->
-    <audio id="track2a" src="Berlin Church.mp3"></audio>
-    <audio id="track2b" src="Viet Pagoda.mp3"></audio>
-    <button id="playPauseBtn2">Play Pair 2</button>
-    <input type="range" id="fader2" min="0" max="100" value="50">
+    <!-- PAIR 1 - URBAN -->
+    <div class="audio-block">
 
-    <!-- TV -->
-    <audio id="track3a" src="TV Ger.mp3"></audio>
-    <audio id="track3b" src="TV Viet.mp3"></audio>
-    <button id="playPauseBtn3">Play Pair 3</button>
-    <input type="range" id="fader3" min="0" max="100" value="50">
+        <audio id="track1a" src="Walking Berlin.mp3"></audio>
+        <audio id="track1b" src="Walking Hanoi.mp3"></audio>
 
-    <!-- MARKET -->
-    <audio id="track4a" src="Market Ber.mp3"></audio>
-    <audio id="track4b" src="Market Viet.mp3"></audio>
-    <button id="playPauseBtn4">Play Pair 4</button>
-    <input type="range" id="fader4" min="0" max="100" value="50">
+        <button id="playPauseBtn1">Play ▷</button>
+
+        <div class="fader-container urban">
+            <img src="urban.png" class="side-icon">
+            <input type="range" id="fader1" min="0" max="100" value="50">
+            <img src="urban.png" class="side-icon">
+        </div>
+
+    </div>
+
+    <!-- PAIR 2 - SPIRITUAL -->
+    <div class="audio-block">
+
+        <audio id="track2a" src="Berlin Church.mp3"></audio>
+        <audio id="track2b" src="Viet Pagoda.mp3"></audio>
+
+        <button id="playPauseBtn2">Play ▷</button>
+
+        <div class="fader-container spiritual">
+            <img src="spiritual.png" class="side-icon">
+            <input type="range" id="fader2" min="0" max="100" value="50">
+            <img src="spiritual.png" class="side-icon">
+        </div>
+
+    </div>
+
+    <!-- PAIR 3 - MEDIA -->
+    <div class="audio-block">
+
+        <audio id="track3a" src="TV Ger.mp3"></audio>
+        <audio id="track3b" src="TV Viet.mp3"></audio>
+
+        <button id="playPauseBtn3">Play ▷</button>
+
+        <div class="fader-container media">
+            <img src="media.png" class="side-icon">
+            <input type="range" id="fader3" min="0" max="100" value="50">
+            <img src="media.png" class="side-icon">
+        </div>
+
+    </div>
+
+    <!-- PAIR 4 - MARKET (FIXED) -->
+    <div class="audio-block">
+
+        <audio id="track4a" src="Market Ber.mp3"></audio>
+        <audio id="track4b" src="Market Viet.mp3"></audio>
+
+        <button id="playPauseBtn4">Play ▷</button>
+
+        <div class="fader-container market">
+            <img src="market.png" class="side-icon">
+            <input type="range" id="fader4" min="0" max="100" value="50">
+            <img src="market.png" class="side-icon">
+        </div>
+
+    </div>
 
     <button id="submitBtn">Submit Results</button>
 </div>
