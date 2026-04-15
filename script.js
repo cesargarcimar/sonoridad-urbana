@@ -73,17 +73,17 @@ function stopAll(){
 
     isPlaying1=false; isPlaying2=false; isPlaying3=false; isPlaying4=false;
 
-    playPauseBtn1.textContent="Play Pair 1";
-    playPauseBtn2.textContent="Play Pair 2";
-    playPauseBtn3.textContent="Play Pair 3";
-    playPauseBtn4.textContent="Play Pair 4";
+    playPauseBtn1.textContent="Play ▷";
+    playPauseBtn2.textContent="Play ▷";
+    playPauseBtn3.textContent="Play ▷";
+    playPauseBtn4.textContent="Play ▷";
 }
 
 /* Play/Pause buttons */
-playPauseBtn1.onclick = ()=>{ if(!isPlaying1){ stopAll(); track1a.play(); track1b.play(); isPlaying1=true; playPauseBtn1.textContent="Pause Pair 1"; } else stopAll(); };
-playPauseBtn2.onclick = ()=>{ if(!isPlaying2){ stopAll(); track2a.play(); track2b.play(); isPlaying2=true; playPauseBtn2.textContent="Pause Pair 2"; } else stopAll(); };
-playPauseBtn3.onclick = ()=>{ if(!isPlaying3){ stopAll(); track3a.play(); track3b.play(); isPlaying3=true; playPauseBtn3.textContent="Pause Pair 3"; } else stopAll(); };
-playPauseBtn4.onclick = ()=>{ if(!isPlaying4){ stopAll(); track4a.play(); track4b.play(); isPlaying4=true; playPauseBtn4.textContent="Pause Pair 4"; } else stopAll(); };
+playPauseBtn1.onclick = ()=>{ if(!isPlaying1){ stopAll(); track1a.play(); track1b.play(); isPlaying1=true; playPauseBtn1.textContent="Pause ⏸"; } else stopAll(); };
+playPauseBtn2.onclick = ()=>{ if(!isPlaying2){ stopAll(); track2a.play(); track2b.play(); isPlaying2=true; playPauseBtn2.textContent="Pause ⏸"; } else stopAll(); };
+playPauseBtn3.onclick = ()=>{ if(!isPlaying3){ stopAll(); track3a.play(); track3b.play(); isPlaying3=true; playPauseBtn3.textContent="Pause ⏸"; } else stopAll(); };
+playPauseBtn4.onclick = ()=>{ if(!isPlaying4){ stopAll(); track4a.play(); track4b.play(); isPlaying4=true; playPauseBtn4.textContent="Pause ⏸"; } else stopAll(); };
 
 /* Faders */
 fader1.oninput = ()=>{ let v=fader1.value/100; track1a.volume=1-v; track1b.volume=v; userData.streets=fader1.value; };
