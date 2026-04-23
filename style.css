@@ -65,7 +65,7 @@ select {
 }
 
 /* ---------------------------- */
-/* Botones                     */
+/* BOTONES GENERALES           */
 /* ---------------------------- */
 
 button {
@@ -76,7 +76,7 @@ button {
     border-radius: 8px;
     border: none;
     display: block;
-    margin: 15px auto 10px auto; /* 🔥 más compacto */
+    margin: 15px auto 10px auto;
     cursor: pointer;
     transition: 0.3s;
     background-color: #9b59b6;
@@ -95,11 +95,30 @@ button:not(.disabled):hover {
 }
 
 /* ---------------------------- */
+/* 🔥 SUBMIT BUTTON (MEJORADO) */
+/* ---------------------------- */
+
+#submitBtn {
+    background-color: #6c3483; /* morado más oscuro */
+    font-weight: 700;          /* negrita */
+    font-size: 22px;           /* más grande */
+    height: 50px;              /* un poco más compacto */
+    max-width: 260px;          /* más estrecho */
+    border-radius: 16px;       /* más redondeado */
+    margin-top: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+#submitBtn:hover {
+    background-color: #7d3c98;
+}
+
+/* ---------------------------- */
 /* AUDIO BLOCKS                */
 /* ---------------------------- */
 
 .audio-block {
-    margin-bottom: 25px; /* 🔥 compacto vertical */
+    margin-bottom: 25px;
 }
 
 /* ---------------------------- */
@@ -110,45 +129,52 @@ button:not(.disabled):hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
     position: relative;
     width: 95%;
     max-width: 360px;
-    margin: 20px auto 25px auto; /* 🔥 compacto real */
-}
-
-/* asegura slider ancho */
-.fader-container input[type="range"] {
-    width: 100%;
+    margin: 20px auto 25px auto;
 }
 
 /* ---------------------------- */
-/* ICONOS (URBAN FIX FINAL)    */
+/* ICONOS BASE                 */
 /* ---------------------------- */
 
 .side-icon {
-    width: 80px;
     height: auto;
     opacity: 0.95;
-
     position: absolute;
-
-    /* 🔥 pegado a barra pero alineado */
     top: 50%;
     transform: translateY(-50%);
-
     z-index: 3;
     pointer-events: none;
 }
 
-/* izquierda */
+/* ICONOS normales */
 .side-icon:first-child {
-    left: calc(-80px - 9px); /* 🔥 +3mm separación extra */
+    width: 80px;
+    left: calc(-80px - 9px);
 }
 
-/* derecha */
 .side-icon:last-child {
-    right: calc(-80px - 9px); /* 🔥 +3mm separación extra */
+    width: 80px;
+    right: calc(-80px - 9px);
+}
+
+/* ---------------------------- */
+/* PARTY ICONS AJUSTE          */
+/* ---------------------------- */
+
+.audio-block:nth-of-type(2) .side-icon:first-child,
+.audio-block:nth-of-type(2) .side-icon:last-child {
+    width: 98px;
+}
+
+.audio-block:nth-of-type(2) .side-icon:first-child {
+    left: calc(-98px - 10px);
+}
+
+.audio-block:nth-of-type(2) .side-icon:last-child {
+    right: calc(-98px - 10px);
 }
 
 /* ---------------------------- */
@@ -165,37 +191,9 @@ input[type="range"] {
     margin: 25px auto 20px auto;
     display: block;
     outline: none;
-    position: relative;
-    z-index: 1;
-    touch-action: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 90px;
-    height: 90px;
-    background-image: url('fader-thumb.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin-top: -38px;
-}
-
-input[type="range"]::-moz-range-thumb {
-    width: 90px;
-    height: 90px;
-    background-image: url('fader-thumb.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    top: -38px;
-}
-
+/* TRACK */
 input[type="range"]::-webkit-slider-runnable-track {
     height: 14px;
     border-radius: 6px;
@@ -208,29 +206,62 @@ input[type="range"]::-moz-range-track {
     background-color: #c7a3e0;
 }
 
+/* THUMB */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 90px;
+    height: 90px;
+    background-image: url('fader-thumb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    margin-top: -38px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 90px;
+    height: 90px;
+    background-image: url('fader-thumb.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+/* ---------------------------- */
+/* DIVIDER                     */
+/* ---------------------------- */
+
+.divider {
+    display: block;
+    width: 95%;
+    max-width: 360px;
+    margin: 10px auto 0 auto;
+    opacity: 0.9;
+}
+
 /* ---------------------------- */
 /* MOBILE                      */
 /* ---------------------------- */
 
 @media screen and (max-width: 768px) {
 
-    .audio-block {
-        margin-bottom: 20px;
-    }
-
-    .fader-container {
-        margin: 18px auto;
-    }
-
-    .side-icon {
+    .side-icon:first-child,
+    .side-icon:last-child {
         width: 55px;
     }
 
-    .side-icon:first-child {
-        left: calc(-55px - 9px);
+    .audio-block:nth-of-type(2) .side-icon:first-child,
+    .audio-block:nth-of-type(2) .side-icon:last-child {
+        width: 65px;
     }
 
-    .side-icon:last-child {
-        right: calc(-55px - 9px);
+    .audio-block:nth-of-type(2) .side-icon:first-child {
+        left: calc(-65px - 10px);
+    }
+
+    .audio-block:nth-of-type(2) .side-icon:last-child {
+        right: calc(-65px - 10px);
     }
 }
