@@ -149,7 +149,6 @@ button:not(.disabled):hover {
     pointer-events: none;
 }
 
-/* ICONOS normales */
 .side-icon:first-child {
     width: 80px;
     left: calc(-80px - 9px);
@@ -178,7 +177,7 @@ button:not(.disabled):hover {
 }
 
 /* ---------------------------- */
-/* FADER (FIX VERCEL BLANCO)   */
+/* FADER                       */
 /* ---------------------------- */
 
 input[type="range"] {
@@ -186,15 +185,11 @@ input[type="range"] {
     max-width: 360px;
     height: 14px;
     -webkit-appearance: none;
-    appearance: none;
-
     border-radius: 6px;
-
-    background: transparent; /* 🔥 CLAVE */
-    outline: none;
-
+    background-color: #c7a3e0;
     margin: 25px auto 20px auto;
     display: block;
+    outline: none;
 }
 
 /* TRACK */
@@ -215,10 +210,10 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 90px;
     height: 90px;
-    background-image: url('fader-thumb.png');
+    background: url('fader-thumb.png') no-repeat center center;
     background-size: contain;
-    background-repeat: no-repeat;
     border: none;
+    box-shadow: none;
     cursor: pointer;
     margin-top: -38px;
 }
@@ -226,10 +221,10 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-moz-range-thumb {
     width: 90px;
     height: 90px;
-    background-image: url('fader-thumb.png');
+    background: url('fader-thumb.png') no-repeat center center;
     background-size: contain;
-    background-repeat: no-repeat;
     border: none;
+    box-shadow: none;
     cursor: pointer;
 }
 
