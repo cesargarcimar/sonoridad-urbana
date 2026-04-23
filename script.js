@@ -76,11 +76,18 @@ agreeBtn.addEventListener('click', () => {
 /* STOP ALL */
 function stopAll(){
 
-    track1a.pause(); track1b.pause();
-    trackPartyA.pause(); trackPartyB.pause();
-    track2a.pause(); track2b.pause();
-    track3a.pause(); track3b.pause();
-    track4a.pause(); track4b.pause();
+    const audios = [
+        track1a, track1b,
+        trackPartyA, trackPartyB,
+        track2a, track2b,
+        track3a, track3b,
+        track4a, track4b
+    ];
+
+    audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
 
     isPlaying1=false;
     isPlayingParty=false;
@@ -159,6 +166,9 @@ fader4.oninput = ()=>{
 
 /* SUBMIT */
 submitBtn.addEventListener('click', async()=>{
+
+    /* 🔥 STOP EVERYTHING BEFORE SENDING */
+    stopAll();
 
     const results = {
         Name: userData.Name,
