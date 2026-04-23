@@ -99,12 +99,12 @@ button:not(.disabled):hover {
 /* ---------------------------- */
 
 #submitBtn {
-    background-color: #6c3483; /* morado más oscuro */
-    font-weight: 700;          /* negrita */
-    font-size: 22px;           /* más grande */
-    height: 50px;              /* un poco más compacto */
-    max-width: 260px;          /* más estrecho */
-    border-radius: 16px;       /* más redondeado */
+    background-color: #6c3483;
+    font-weight: 700;
+    font-size: 22px;
+    height: 50px;
+    max-width: 260px;
+    border-radius: 16px;
     margin-top: 25px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
@@ -178,7 +178,7 @@ button:not(.disabled):hover {
 }
 
 /* ---------------------------- */
-/* FADER                       */
+/* FADER (FIX VERCEL BLANCO)   */
 /* ---------------------------- */
 
 input[type="range"] {
@@ -186,11 +186,15 @@ input[type="range"] {
     max-width: 360px;
     height: 14px;
     -webkit-appearance: none;
+    appearance: none;
+
     border-radius: 6px;
-    background-color: #c7a3e0;
+
+    background: transparent; /* 🔥 CLAVE */
+    outline: none;
+
     margin: 25px auto 20px auto;
     display: block;
-    outline: none;
 }
 
 /* TRACK */
